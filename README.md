@@ -8,4 +8,4 @@ Setup
 
 Put all hiera data into `../hieradata/common.yaml`, then run
 
-  ./apply
+    ./apply
