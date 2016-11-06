@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -u
+set -e
+set -o pipefail
+
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+hash librarian-puppet 2>/dev/null || sudo gem install librarian-puppet
+test -d modules || librarian-puppet install
+
+sudo puppet apply manifests/site.pp --modulepath modules --config puppet.conf
